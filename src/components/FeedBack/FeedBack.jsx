@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "proptypes";
 
+import Statistics from "./Statistics";
+
 export default class FeedBack extends Component {
   state = {
     good: 0,
@@ -41,25 +43,13 @@ export default class FeedBack extends Component {
             </button>
           </li>
         </ul>
-        <h2>Statistics</h2>
-        <ul>
-          <li>
-            Good: <span>{this.state.good}</span>
-          </li>
-          <li>
-            Neutral: <span>{this.state.neutral}</span>
-          </li>
-          <li>
-            Bad: <span>{this.state.bad}</span>
-          </li>
-          <li>
-            Total: <span>{this.countTotalFeedback(this.state)}</span>
-          </li>
-          <li>
-            Positive Feedback:{" "}
-            <span>{this.countPositiveFeedbackPercentage(this.state)}</span>%
-          </li>
-        </ul>
+        <Statistics
+          good={this.state.good}
+          neutral={this.state.neutral}
+          bad={this.state.bad}
+          total={this.countTotalFeedback(this.state)}
+          positivePercentage={this.countPositiveFeedbackPercentage(this.state)}
+        />
       </div>
     );
   }
