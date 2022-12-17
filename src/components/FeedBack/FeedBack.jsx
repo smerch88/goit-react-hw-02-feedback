@@ -3,6 +3,7 @@ import PropTypes from "proptypes";
 
 import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
+import Notification from "./Notification";
 
 export default class FeedBack extends Component {
   state = {
@@ -31,13 +32,19 @@ export default class FeedBack extends Component {
           onLeaveFeedback={this.addRating}
           options={this.state}
         />
-        <Statistics
-          good={this.state.good}
-          neutral={this.state.neutral}
-          bad={this.state.bad}
-          total={this.countTotalFeedback(this.state)}
-          positivePercentage={this.countPositiveFeedbackPercentage(this.state)}
-        />
+        {this.countTotalFeedback(this.state) === 0 ? (
+          <Notification message="There is no feedback" />
+        ) : (
+          <Statistics
+            good={this.state.good}
+            neutral={this.state.neutral}
+            bad={this.state.bad}
+            total={this.countTotalFeedback(this.state)}
+            positivePercentage={this.countPositiveFeedbackPercentage(
+              this.state
+            )}
+          />
+        )}
       </div>
     );
   }

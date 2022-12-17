@@ -5,7 +5,6 @@ export default class FeedbackOptions extends Component {
     const { onLeaveFeedback, options } = this.props;
     return (
       <>
-        {" "}
         <ul>
           {Object.keys(options).map((key) => (
             <li key={key}>
