@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "proptypes";
 
 import Statistics from "./Statistics";
+import FeedbackOptions from "./FeedbackOptions";
 
 export default class FeedBack extends Component {
   state = {
@@ -26,23 +27,10 @@ export default class FeedBack extends Component {
     return (
       <div>
         <h1>Please leave feedback</h1>
-        <ul>
-          <li>
-            <button id="good" onClick={this.addRating}>
-              Good
-            </button>
-          </li>
-          <li>
-            <button id="neutral" onClick={this.addRating}>
-              Neutral
-            </button>
-          </li>
-          <li>
-            <button id="bad" onClick={this.addRating}>
-              Bad
-            </button>
-          </li>
-        </ul>
+        <FeedbackOptions
+          onLeaveFeedback={this.addRating}
+          options={this.state}
+        />
         <Statistics
           good={this.state.good}
           neutral={this.state.neutral}
