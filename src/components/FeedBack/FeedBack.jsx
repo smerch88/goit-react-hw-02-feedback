@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "proptypes";
 
 import Statistics from "./Statistics";
 import FeedbackOptions from "./FeedbackOptions";
@@ -49,9 +48,3 @@ export default class FeedBack extends Component {
     );
   }
 }
-
-FeedBack.protoTypes = {
-  good: PropTypes.number.isRequired,
-  neutral: PropTypes.number.isRequired,
-  bad: PropTypes.number.isRequired,
-};
